@@ -4,17 +4,48 @@
     <title>Journey</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="css/bootswatch.css" rel="stylesheet" media="screen">
   </head>
   <body>
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/journey/home.js"></script>
-    <h1>Your Journey</h1>
-    <p class="lead">Edgar Neto one year ago.</p>
-    <br />
+    <header class="jumbotron subhead" id="overview">
+      <div class="row">
+        <div class="span18">
+          <h1>Your Journey</h1>
+        </div>
+      </div>
+    </header>
 
-        <div id="fb-content"></div>
+    <div class="row">
+
+      <div class="span8">
+        <!-- LEFT -->
+        <section id="past">
+        <div class="page-header"> <h2> Where were you one year ago? </h2> </div>
+          <div class="row">
+              <div  class="span1" id="fb-connect"></div>
+              <div  class="span1" id="tw-connect"></div>
+          </div>
+        </section>
+      </div>
+
+      <div class="span2"></div>
+
+      <div class="span8">
+        <!-- RIGHT -->
+        <section id="future">
+          <div class="page-header"> 
+            <h2> Where do you want to be in one year? </h2> 
+          </div>
+          <input class="input-xxlarge" type="text" />
+        </section>
+      </div>
+
+    </div>
+
   </body>
 
 </html>

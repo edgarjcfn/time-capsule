@@ -21,5 +21,8 @@
     "16" : "img/logo-16.png", 
     "48" : "img/logo-48.png",
     "128" : "img/logo-128.png"
-  }
+  },
+  "web_accessible_resources": [
+    "img/fb-button.png"
+  ]
 }
