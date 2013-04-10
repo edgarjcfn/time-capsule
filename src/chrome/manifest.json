@@ -7,9 +7,19 @@
   "chrome_url_overrides" : {
     "newtab": "journey.html"
   },
+  "background": 
+  {
+    "scripts": ["js/journey/update.js", "js/background.js"],
+    "persistent" : false
+  },
+  "permissions": [
+    "tabs",
+    "https://*.facebook.com/*",
+    "http://*.facebook.com/*"
+  ],
   "icons" : { 
-    "16" : "logo-16.png", 
-    "48" : "logo-48.png",
-    "128" : "logo-128.png"
+    "16" : "img/logo-16.png", 
+    "48" : "img/logo-48.png",
+    "128" : "img/logo-128.png"
   }
 }
