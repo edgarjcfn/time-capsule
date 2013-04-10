@@ -10,32 +10,43 @@
   <body>
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="oauth2/oauth2.js"></script>
     <script src="js/journey/home.js"></script>
+
     <header class="jumbotron subhead" id="overview">
       <div class="row">
         <div class="span18">
-          <h1>Your Journey</h1>
+          <h1> <img src="./img/logo-75.png"/> Your Journey</h1>
         </div>
       </div>
     </header>
 
     <div class="row">
 
+      <!-- LEFT -->
       <div class="span8">
-        <!-- LEFT -->
         <section id="past">
         <div class="page-header"> <h2> Where were you one year ago? </h2> </div>
           <div class="row">
-              <div  class="span1" id="fb-connect"></div>
-              <div  class="span1" id="tw-connect"></div>
+              <div  class="span1">
+                <a href="#" id="fb-connect">
+                    <img src="./img/facebook.png" />
+                </a>
+              </div>
+              <div class="span1">
+                <a href="#" id="tw-connect">
+                  <img src="./img/twitter.png" />
+                </a>
+              </div>
           </div>
         </section>
       </div>
 
+      <!-- CENTER -->
       <div class="span2"></div>
 
+      <!-- RIGHT -->
       <div class="span8">
-        <!-- RIGHT -->
         <section id="future">
           <div class="page-header"> 
             <h2> Where do you want to be in one year? </h2> 

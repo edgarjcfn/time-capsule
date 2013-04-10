@@ -1,29 +1,34 @@
 $(document).ready( function () {
-    showFbConnect();
-    showTwitterConnect();
+    checkFacebookConnection();
+    checkTwitterConnection();
   }
 );
 
 
-function showFbConnect()
+function checkFacebookConnection()
 {
-  var fbConnectHref = "https://www.facebook.com/dialog/oauth?client_id=197666783690495&redirect_uri=http://www.facebook.com/connect/login_success.html&scope=email&response_type=token";
-  var fbDiv = $("#fb-connect");
-
-  if (localStorage.fb_access_token)
-  {
-    fbDiv.html(localStorage.fb_access_token);
-  }
-  else
-  {
-    fbDiv.html("<a href='" + fbConnectHref + "'> <img src='"+ chrome.extension.getURL('img/facebook.png')+ "' /> </a>");
-  }
+  $("#fb-connect").on("click", function() {
+    connectFacebook();
+  });
 }
 
-function showTwitterConnect()
+function connectFacebook()
 {
-  var twitterDiv = $("#tw-connect");
+  var fbAuth = new OAuth2('facebook', 
+    {
+      'client_id' : '197666783690495',
+      'client_secret' : 'fd813c9bac5c49d7e2d02a386176f1a3'
+    });
 
-  twitterDiv.html("<a href='#'> <img src='"+ chrome.extension.getURL('img/twitter.png')+ "' /> </a>")
+  fbAuth.authorize(function () {
+    console.log("executing callback...");
+    var token = fbAuth.getAccessToken();
+    console.log(token);    
+  });
+}
+
+function checkTwitterConnection()
+{
+  
 }
 
