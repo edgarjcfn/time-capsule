@@ -276,6 +276,10 @@ a:focus {
   *zoom: 1;
 }
 
+.row .tight {
+  margin-top:-24px;
+}
+
 .row:before,
 .row:after {
   display: table;
@@ -670,7 +674,7 @@ p {
 #future-box
 {
   font-size: 20px;
-  height: 23px;
+  height: 50px;
   width: 95%;
   font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
   color: #777;
@@ -6180,7 +6184,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0 0 10px;
+  margin: 16px 0 10px;
   line-height: 1.2;
 }
 
