@@ -7,7 +7,7 @@
     //
     var settings = $.extend( {
       'connector'        : null,
-      'authorize_callback' : null
+      'callback' : null
     }, options);
 
     //
@@ -25,7 +25,7 @@
     	oauth.authorize( function() {
     		$(span).html('');
     		createButton(span);
-    		settings.authorize_callback();
+    		settings.callback();
     	});
     }
 
@@ -42,6 +42,7 @@
 	    {
 	    	image.attr('src', activeImagePath);
 	      	$(span).append(image);
+	      	settings.callback();
 	    }
       	else
       	{

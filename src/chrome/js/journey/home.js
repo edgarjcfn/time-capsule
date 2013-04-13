@@ -2,8 +2,8 @@ $(document).ready( function () {
 
     $('#btn-facebook').jn_social_button({
       connector : 'facebook',
-      authorize_callback : function () {
-        console.log('connected to facebook');
+      callback  : function () {
+        addToPastNewsfeed('facebook');
       }
     });
 
@@ -21,4 +21,16 @@ $(document).ready( function () {
     
   }
 );
+
+function addToPastNewsfeed(adapterName)
+{
+  OAuth2.loadAdapter(adapterName, function() {
+    var adapter = OAuth2.adapters[adapterName];
+
+    adapter.getLastYearsPosts( function (posts) {
+
+    })
+
+  });
+}
 
