@@ -18,11 +18,8 @@
 
 // Get all query string parameters from the original URL.
 var url = decodeURIComponent(window.location.href.match(/&from=([^&]+)/)[1]);
-alert('url ' + url)
 url = url.split(/\?|#/)[0];
 
 // Derive adapter name from URI and then finish the process.
 var adapterName = OAuth2.lookupAdapterName(url);
-alert('url ' + url)
-alert('adapterName ' + adapterName)
 var finisher = new OAuth2(adapterName, OAuth2.FINISH);

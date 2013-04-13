@@ -147,6 +147,7 @@ OAuth2.prototype.getAccessAndRefreshTokens = function(authorizationCode, callbac
     var url = that.adapter.accessTokenURL();
     var params = '?';
     for (key in items) {
+      console.log(key + " : " + items[key]);
       params += encodeURIComponent(key) + '=' +
                 encodeURIComponent(items[key]) + '&';
     }

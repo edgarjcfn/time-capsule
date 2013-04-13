@@ -4,13 +4,25 @@ OAuth2.adapter('facebook', {
       'client_id={{CLIENT_ID}}&' +
       'redirect_uri={{REDIRECT_URI}}&' +
       'scope={{API_SCOPE}}')
-        .replace('{{CLIENT_ID}}', '197666783690495')
-        .replace('{{REDIRECT_URI}}', 'http://desolate-waters-5944.herokuapp.com/login_successful.htm')
-        .replace('{{API_SCOPE}}', 'user_status,user_activities,user_education_history,user_relationships,user_work_history,user_photos');
+        .replace('{{CLIENT_ID}}', this.clientId)
+        .replace('{{REDIRECT_URI}}', this.redirectURL)
+        .replace('{{API_SCOPE}}', this.permissions);
+  },
+
+  clientSecret : function() {
+    return 'fd813c9bac5c49d7e2d02a386176f1a3';
+  },
+
+  clientId : function() {
+    return '197666783690495';
   },
 
   redirectURL: function(config) {
     return 'http://desolate-waters-5944.herokuapp.com/login_successful.htm';
+  },
+
+  permissions: function() {
+    return 'user_status,user_activities,user_education_history,user_relationships,user_work_history,user_photos';
   },
 
   parseAuthorizationCode: function(url) {
@@ -30,8 +42,8 @@ OAuth2.adapter('facebook', {
   accessTokenParams: function(authorizationCode, config) {
     return {
       code: authorizationCode,
-      client_id: config.clientId,
-      client_secret: config.clientSecret,
+      client_id: this.clientId(),
+      client_secret: this.clientSecret(),
       redirect_uri: this.redirectURL(config)
     };
   },
