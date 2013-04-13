@@ -1,15 +1,31 @@
 $(document).ready( function () {
-    checkFacebookConnection();
-    checkTwitterConnection();
+
+    $('#btn-facebook').jn_social_button({
+      connector : 'facebook'
+    });
+
+    $('#btn-twitter').jn_social_button({
+      connector : 'twitter'
+    });
+
+    $('#btn-google-plus').jn_social_button({
+      connector : 'googleplus'
+    });
+
+    $('#btn-instagram').jn_social_button({
+      connector : 'instagram'
+    });
+    
   }
 );
 
 
 function checkFacebookConnection()
 {
-  $("#fb-connect").on("click", function() {
-    connectFacebook();
-  });
+
+  // $("#fb-connect").on("click", function() {
+  //   connectFacebook();
+  // });
 }
 
 function connectFacebook()
@@ -25,10 +41,5 @@ function connectFacebook()
     var token = fbAuth.getAccessToken();
     console.log(token);    
   });
-}
-
-function checkTwitterConnection()
-{
-  
 }
 
