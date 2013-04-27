@@ -62,17 +62,37 @@ OAuth2.adapter('facebook',
       var graphAPI = "https://graph.facebook.com/me?access_token=" + oauthData.accessToken;
 
       // Thank you, datejs :)
-      var minDate = Date.parse('1 year ago').add(-7).days().getTime() / 1000;
-      var maxDate = Date.parse('1 year ago').add(7).days().getTime() / 1000;
+      var minDate = Date.parse('1 year ago').add(-15).days().getTime() / 1000;
+      var maxDate = Date.parse('1 year ago').add(15).days().getTime() / 1000;
+
+      var userFields = [
+        'id',
+        'name'
+      ]
+
+      var imageFields = [
+        'created_time',
+        'height',
+        'width',
+        'name',
+        'picture',
+        'source'
+      ];
+
+      var statusFields = [
+        'message'
+      ];
 
       $.ajax({
         dataType: "json",
         url: graphAPI,
         data: {
-          'fields' : 'statuses.until(' +maxDate+ ').since('+minDate+').fields(updated_time,id,from,message)'
+          'fields' :  userFields.join() + ',' +
+                      'photos.since('+minDate+').until('+maxDate+').fields('+imageFields.join()+'),' + 
+                      'statuses.since('+minDate+').until('+maxDate+').fields('+statusFields.join()+')'
         },
         success : function(response) {
-            console.debug(response);
+            callback(response);
         }
       });
     },

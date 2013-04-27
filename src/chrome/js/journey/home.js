@@ -18,6 +18,10 @@ $(document).ready( function () {
     $('#btn-instagram').jn_social_button({
       connector : 'instagram'
     });
+
+    $('#future-box').idt({
+      defaultText : 'ex.: achieve ideal weight'
+    });
     
   }
 );
