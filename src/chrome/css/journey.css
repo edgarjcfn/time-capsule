@@ -1,0 +1,23 @@
+.story
+{
+	margin-left:20px;
+	margin-top:10px;
+	margin-bottom: 5px;
+	border-top: 2px solid #eee;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.story.picture img {
+	display:none;
+	/*display:inline-block;
+	float:left;*/
+	/*margin: 4px;*/
+}
+
+.story.picture blockquote {
+	border:none;
+	/*float:right;*/
+	/*margin: 4px;*/
+}
+

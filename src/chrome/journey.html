@@ -4,12 +4,15 @@
     <title>Journey</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
-    <link href="css/bootswatch.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen" />
+    <link href="css/bootswatch.css" rel="stylesheet" media="screen" />
+    <!-- Custom -->
+    <link href="css/journey.css" rel="stylesheet" media="screen" />
   </head>
   <body>
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/jquery.idt.js"></script>
+    <script src="js/jquery.nailthumb.1.1.min.js"></script>
     <script src="js/date.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="oauth2/oauth2.js"></script>
@@ -31,9 +34,9 @@
     <div class="row">
 
       <!-- LEFT -->
-      <div class="span8">
-        <section id="past">
-        <div class="page-header"> <h2> Where were you one year ago? </h2> </div>
+      <section id="past">
+        <div class="span8">
+          <div class="page-header"> <h2> Where were you one year ago? </h2> </div>
           <div class="row tight">
               <div  class="span1">
                 <span id="btn-facebook" />
@@ -48,15 +51,21 @@
                 <span id="btn-instagram" />
               </div>
           </div>
-        </section>
-      </div>
+          <div class="row">
+            <div id="newsfeed">
+              
+
+            </div> 
+          </div>
+        </div>
+      </section>  
 
       <!-- CENTER -->
       <div class="span2"></div>
 
       <!-- RIGHT -->
-      <div class="span8">
-        <section id="future">
+      <section id="future">
+        <div class="span8">
           <div class="page-header"> 
             <h2> 
               Where will you be one year from now?
@@ -67,9 +76,8 @@
               <input id="future-box" type="text" />
             </div>
           </div>
-          
-        </section>
-      </div>
+        </div>
+      </section>
 
     </div>
 

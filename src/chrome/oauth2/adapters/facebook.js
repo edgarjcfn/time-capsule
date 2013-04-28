@@ -76,7 +76,8 @@ OAuth2.adapter('facebook',
         'width',
         'name',
         'picture',
-        'source'
+        'source',
+        'link'
       ];
 
       var statusFields = [
