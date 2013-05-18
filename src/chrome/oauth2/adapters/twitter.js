@@ -1,29 +1,34 @@
-OAuth2.adapter('facebook', 
+OAuth2.adapter('twitter', 
   {
+    requestToken : "",
+
+    requestTokenUrl : function() {
+      return 'https://api.twitter.com/oauth/request_token/' +
+      '?oauth_callback=' + this.redirectURL();
+    },
+
+    needsRequestToken : function() {
+      return true;
+    },
+
     authorizationCodeURL: function(config) {
-      return ('https://www.facebook.com/dialog/oauth?' +
-        'client_id={{CLIENT_ID}}&' +
-        'redirect_uri={{REDIRECT_URI}}&' +
-        'scope={{API_SCOPE}}')
-          .replace('{{CLIENT_ID}}', this.clientId)
-          .replace('{{REDIRECT_URI}}', this.redirectURL)
-          .replace('{{API_SCOPE}}', this.permissions);
+      return ('https://api.twitter.com/oauth/authorize?'+
+        'oauth_consumer_key={{CLIENT_ID}}')
+          .replace('{{CLIENT_ID}}', this.clientId);
+          // .replace('{{REDIRECT_URI}}', this.redirectURL)
+          // .replace('{{API_SCOPE}}', this.permissions);
     },
 
     clientSecret : function() {
-      return 'fd813c9bac5c49d7e2d02a386176f1a3';
+      return 'ZEp4FuJQogaHcuDPSlNFBfFx2lLUqWWY0cMxZIK1HJY';
     },
 
     clientId : function() {
-      return '197666783690495';
+      return 'G366GM1w1Fj3W8v30AIAEw';
     },
 
     redirectURL: function(config) {
-      return 'http://desolate-waters-5944.herokuapp.com/login_successful.htm';
-    },
-
-    permissions: function() {
-      return 'user_status,user_activities,user_education_history,user_relationships,user_work_history,user_photos';
+      return 'http://www.twitter.com/robots.txt';
     },
 
     parseAuthorizationCode: function(url) {
@@ -33,7 +38,7 @@ OAuth2.adapter('facebook',
     },
 
     accessTokenURL: function() {
-      return 'https://graph.facebook.com/oauth/access_token';
+      return 'https://api.twitter.com/oauth/access_token';
     },
 
     accessTokenMethod: function() {

@@ -27,9 +27,11 @@ NewsFeed.addContent = function(adapterName)
         });
       }
 
-      $('.story.picture img')
-        .css('display', 'block')
-        .nailthumb({width:100,height:100});
+      $('.row.story.picture img')
+        .css('display', 'block')        
+        .nailthumb({width:100,height:100,method:'crop'})
+        .css('width', 100)
+        .css('height', 100);
     })
 
   });
