@@ -34,8 +34,8 @@
     // 
     var createButton = function( span )
     {
-    	var inactiveImagePath = "./img/social/inactive/"+ settings.connector +".png";
-   	   	var activeImagePath = "./img/social/active/"+ settings.connector +".png";
+    	var inactiveImagePath = "./images/social/inactive/"+ settings.connector +".png";
+   	   	var activeImagePath = "./images/social/active/"+ settings.connector +".png";
   	   	var image = $('<img src="'+inactiveImagePath+'"/>');
 
 	    if (localStorage['oauth2_'+settings.connector] != null)
