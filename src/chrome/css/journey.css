@@ -1,9 +1,10 @@
-@import url(http://fonts.googleapis.com/css?family=Flamenco:400);
+@import url(http://fonts.googleapis.com/css?family=Flamenco|Josefin+Sans:400,700);
 
 
 .header {
     background-color: #1ABC9C;
-    font-family: 'Lato';
+    font-family: 'Josefin Sans';
+    margin-bottom: 40px;
 }
 
 .footer {
@@ -16,7 +17,7 @@
 .header h1
 {
     color: #ECF0F1;
-    font-weight: 100;
+    font-weight: 700;
     font-size:70px;
     /*margin:40px;*/
     margin-bottom: 0;
@@ -24,14 +25,14 @@
 }
 
 .header .lead {
-    color: #BDC3C7;
+    color: #34495E;
     font-size:21px;
     font-weight:100;
 }
 
 .page-header h2 {
     font-family: 'Lato';
-    color: #16A085;
+    color: #34495E;
     font-weight:100;
     font-size:26pt;
 }
