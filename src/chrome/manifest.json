@@ -7,15 +7,17 @@
   "chrome_url_overrides" : {
     "newtab": "journey.html"
   },
-  "background": 
-  {
-    "scripts": ["js/journey/update.js"],
-    "persistent" : false
-  },
+  // "background": 
+  // {
+  //   "scripts": ["js/journey/update.js"],
+  //   "persistent" : false
+  // },
   "permissions": [
     "tabs",
-    "https://graph.facebook.com/oauth/access_token",
-    "https://api.twitter.com/oauth/access_token"
+    "storage"
+    // remember to add backend urls here
+    //"https://graph.facebook.com/oauth/access_token",
+    //"https://api.twitter.com/oauth/access_token"
   ],
   "icons" : { 
     "16" : "images/logo-16.png", 

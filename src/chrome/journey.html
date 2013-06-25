@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html ng-app="journey" ng-csp>
+  <head >
     <title>Journey</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Loading Bootstrap -->
@@ -12,13 +12,11 @@
   </head>
   <body>
 
-    <script src="js/jquery-1.9.1.min.js"></script>
-    <script src="js/date.js"></script>
-    <script src="js/jquerymx-3.2.custom.min.js"></script>
+    <script src="js/angular.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/journey/model.js"></script>
-    <script src="js/journey/home-controller.js"></script>
-
+    <script src="js/date.js"></script>
+    <script src="js/journey.js"></script>
+    
     <header class="header" id="overview">
       <div class="row">
         <div class="span1"></div>
@@ -62,7 +60,7 @@
       <div class="span1"></div>
 
       <!-- RIGHT -->
-      <section id="future">
+      <section id="future" ng-controller="GoalsController">
         <div class="span8">
           <div class="page-header"> 
             <h2> 
@@ -72,31 +70,23 @@
           <div class="row tight">
             <div class="span8">
               <div class="control-group large">
-                <input id="future-box" type="text" placeholder="ex.: Achieve ideal weight" />
+                <form ng-submit="addGoal()">
+                  <input ng-model="newGoal" id="future-box" type="text" placeholder="ex.: Achieve ideal weight"/>
+                </form>
               </div>
             </div>
           </div>
-          <div class="huge">
+          <div class="huge" ng-init="load()">
             <ul class="nav nav-list">
             <li class="nav-header">Goals</li>
-            <li>
+
+            <li ng-repeat="goal in db.goals">
               <a href="#fakelink">
-                Lose 10kg
-                <span class="nav-counter">364 days</span>
+                {{goal.description}}
+                <span class="nav-counter">{{goal.deadline | daysLeft}} days left</span>
               </a>
             </li>
-            <li>
-              <a href="#fakelink">
-                Achieve level B1 in German
-                <span class="nav-counter">234 days</span>
-              </a>
-            </li>
-            <li>
-              <a href="#fakelink">
-                Travel to India
-                <span class="nav-counter">90 days</span>
-              </a>
-            </li>
+            
           </ul>
           </div>
         </div>
