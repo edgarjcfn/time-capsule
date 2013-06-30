@@ -12,6 +12,7 @@
   </head>
   <body>
 
+    <script src="js/underscore-min.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/date.js"></script>
@@ -76,15 +77,27 @@
               </div>
             </div>
           </div>
-          <div class="huge" ng-init="load()">
+          <div ng-init="load()">
             <ul class="nav nav-list">
             <li class="nav-header">Goals</li>
 
             <li ng-repeat="goal in db.goals">
-              <a href="#fakelink">
-                {{goal.description}}
-                <span class="nav-counter">{{goal.deadline | daysLeft}} days left</span>
-              </a>
+
+              <label class="checkbox primary {{is(goal.done, 'checked')}}">
+                <span class="icons">
+                  <span class="first-icon fui-checkbox-unchecked"></span>
+                  <span class="second-icon fui-checkbox-checked"></span>
+                </span>
+
+                <input type="checkbox" value="" id="checkbox1" data-toggle="checkbox {{is(goal.done, 'checked')}}" ng-click="toggle(goal)">
+
+                <a class="task {{is(goal.done, 'scratch')}}" href="#fakelink" ng-click="toggle(goal)">
+                  {{goal.description}}
+                  <span class="fui-cross nav-remove" ng-click="remove($index)"></span>
+                  <span class="nav-counter">{{goal.deadline | daysLeft}} days left</span>
+                </a>
+
+              </label>
             </li>
             
           </ul>

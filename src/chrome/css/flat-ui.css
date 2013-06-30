@@ -3392,7 +3392,8 @@ input.search-query {
 }
 .checkbox.primary .icons,
 .radio.primary .icons {
-  color: #34495e;
+  /*color: #34495e;*/
+  color:#95a5a6;
 }
 .checkbox.primary.checked,
 .radio.primary.checked {
@@ -3400,7 +3401,8 @@ input.search-query {
 }
 .checkbox.primary.checked .icons,
 .radio.primary.checked .icons {
-  color: #1abc9c;
+  /*color: #1abc9c;*/
+  color:#bdc3c7;
 }
 .checkbox.primary.disabled,
 .radio.primary.disabled {

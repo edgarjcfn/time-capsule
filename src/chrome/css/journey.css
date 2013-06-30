@@ -40,3 +40,29 @@
 #future-box {
     width:100%;
 }
+
+.nav-counter {
+  background-color: #1ABC9C;
+  color: #fff;
+  font-size: 14px;
+}
+
+.nav-remove {
+  background-color: #E74C3C;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 12.992px;
+  font-weight: 500;
+  float: right;
+  margin: 1px -4px -1px 6px;
+  padding: 0px 3px;
+}
+
+.task {
+
+}
+
+.task.scratch {
+    text-decoration: line-through;
+    color: #bdc3c7;
+}
