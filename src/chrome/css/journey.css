@@ -41,13 +41,15 @@
     width:100%;
 }
 
-.nav-counter {
+
+.task span.nav-counter {
   background-color: #1ABC9C;
   color: #fff;
   font-size: 14px;
 }
 
-.nav-remove {
+.task:hover span.nav-remove {
+  display:block;
   background-color: #E74C3C;
   border-radius: 5px;
   color: #ffffff;
@@ -56,6 +58,10 @@
   float: right;
   margin: 1px -4px -1px 6px;
   padding: 0px 3px;
+}
+
+.task span.nav-remove {
+  display:none;
 }
 
 .task {

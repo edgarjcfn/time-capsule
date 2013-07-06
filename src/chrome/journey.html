@@ -11,12 +11,14 @@
     <link href="css/journey.css" rel="stylesheet" media="screen" />
   </head>
   <body>
-
+    <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/underscore-min.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/date.js"></script>
-    <script src="js/journey.js"></script>
+    <script src="js/journey.staging.js"></script>
+    <script src="js/journey.goals.js"></script>
+    <script src="js/journey.newsfeed.js"></script>
     
     <header class="header" id="overview">
       <div class="row">
@@ -34,18 +36,18 @@
     <div class="row">
 
       <!-- LEFT -->
-      <section id="past">
+      <section id="past" ng-controller="NewsFeedController" ng-init="load()">
         <div class="span1"></div>
         <div class="span8">
           <div class="page-header"> <h2> Where were you one year ago? </h2> </div>
           
-            <a href="#fakelink" class="btn btn-large btn-social-facebook">
-              <i class="fui-facebook"></i>
-              Connect with Facebook
+            <a href="#fakelink" class="btn btn-large btn-social-facebook" ng-click="connect('facebook')">
+              <i class="fui-facebook" ></i>
+              Connect with Facebook {{connected('facebook')}}
             </a>
-            <a href="#fakelink" class="btn btn-large btn-social-twitter">
+            <a href="#fakelink" class="btn btn-large btn-social-twitter" ng-click="connect('twitter')">
               <i class="fui-twitter"></i>
-              Connect with Twitter
+              Connect with Twitter {{connected('twitter')}}
             </a>
           
           <div class="row">
