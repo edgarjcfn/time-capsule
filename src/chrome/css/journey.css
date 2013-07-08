@@ -45,7 +45,8 @@
 .task span.nav-counter {
   background-color: #1ABC9C;
   color: #fff;
-  font-size: 14px;
+  font-size: 17px;
+  padding: 1px 10px;
 }
 
 .task:hover span.nav-remove {
@@ -56,7 +57,7 @@
   font-size: 12.992px;
   font-weight: 500;
   float: right;
-  margin: 1px -4px -1px 6px;
+  margin: 1px -28px -1px 6px;
   padding: 0px 3px;
 }
 
@@ -64,11 +65,44 @@
   display:none;
 }
 
-.task {
+.checkbox .icons {
+  font-size:22px;
+  line-height: 24px;
+}
 
+.task {
+  font-size:18px;
 }
 
 .task.scratch {
     text-decoration: line-through;
     color: #bdc3c7;
+}
+
+.toggled {
+  display: none !important;
+}
+
+.toggled .show {
+  display: block;
+}
+
+.feed.status {
+  margin:10px 0 10px 0;
+}
+
+.feed span.fui-bubble,
+.feed span.fui-photo,
+.feed span.fui-facebook {
+  margin:0 10px 0 0;
+}
+
+.feed.status p.message {
+  text-align: left;
+  font-style: italic; 
+}
+
+.feed p.date {
+  text-align: right;
+  color: #95A5A6;
 }

@@ -24,13 +24,13 @@
       <div class="row">
         <div class="span1"></div>
         <div class="span18">
-          <h1>Your Journey</h1>
+          <h1>Your Time Capsule</h1>
         </div>
       </div>
-      <div class="row">
+      <!-- <div class="row">
         <div class="span2"></div>
         <p class="lead">the story of Edgar Neto</p>
-      </div>
+      </div> -->
     </header>
 
     <div class="row">
@@ -39,21 +39,42 @@
       <section id="past" ng-controller="NewsFeedController" ng-init="load()">
         <div class="span1"></div>
         <div class="span8">
-          <div class="page-header"> <h2> Where were you one year ago? </h2> </div>
-          
-            <a href="#fakelink" class="btn btn-large btn-social-facebook" ng-click="connect('facebook')">
-              <i class="fui-facebook" ></i>
-              Connect with Facebook {{connected('facebook')}}
-            </a>
-            <a href="#fakelink" class="btn btn-large btn-social-twitter" ng-click="connect('twitter')">
-              <i class="fui-twitter"></i>
-              Connect with Twitter {{connected('twitter')}}
-            </a>
-          
+          <div class="page-header"> <h2> One year in the past </h2> </div>
+            
+              <a ng-hide="connected('facebook')" href="#fakelink" class="btn btn-large btn-social-facebook" ng-click="connect('facebook')">
+                <i class="fui-facebook" ></i>
+                Connect with Facebook
+              </a>
+            
+              <a ng-hide="connected('twitter')" href="#fakelink" class="btn btn-large btn-social-twitter" ng-click="connect('twitter')">
+                <i class="fui-twitter"></i>
+                Connect with Twitter
+              </a>
+            
           <div class="row">
-            <div id="newsfeed">
-              
+            <div id="newsfeed" ng-show="connected('facebook')" >
+              <div class="span1"></div>
+              <div class="span8">
+                <div class="feed status" ng-repeat="status in facebookFeed.statuses.data">
 
+                  <p class="message"> <span class="fui-bubble"></span><span class="fui-facebook"></span>
+                    {{status.message}}</p>
+                  <p class="date">{{status.updated_time | daysLeft}} days ago</p> 
+                  <br />
+                </div>
+
+                <div class="feed pic" ng-repeat="photo in facebookFeed.photos.data">
+                  
+                    <!-- <a href="{{photo.link}}"> -->
+                      <p class="description"> <span class="fui-photo"></span><span class="fui-facebook"></span> {{photo.name}} </p>
+                      <a href="{{photo.link}}"><img class="image" src="{{photo.picture}}" /></a> <br />
+                    <!-- </a> -->
+
+                    <p class="date">{{photo.created_time | daysLeft}} days ago</p> 
+                  
+                </div>
+
+              </div>
             </div> 
           </div>
         </div>
@@ -67,7 +88,7 @@
         <div class="span8">
           <div class="page-header"> 
             <h2> 
-              Where will you be one year from now?
+              One year in the future
             </h2> 
           </div>
           <div class="row tight">
