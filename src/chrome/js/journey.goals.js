@@ -2,12 +2,14 @@ function GoalsController($scope)
 {
     $scope.loaded = false;
     $scope.newGoal = null;
+    $scope.newGoalExample = null;
     $scope.db = {};
 
     $scope.load = function()
     {
         chrome.storage.sync.get('goals', function(data)
             {
+                $scope.newGoalExample = $scope.randomGoal();
                 $scope.loaded = true;
                 if (! (data.goals))
                 {
@@ -28,6 +30,7 @@ function GoalsController($scope)
             }
         );
         $scope.newGoal = null; 
+        $scope.newGoalExample = $scope.randomGoal();
         $scope.save();
     }
 
@@ -63,6 +66,31 @@ function GoalsController($scope)
     $scope.is = function(test, caseTrue) {
         return test ? caseTrue : "";
     }
+
+    $scope.randomGoal = function() {
+        
+        var goals = [
+            'Achieve ideal weight',
+            'Travel to Asia',
+            'Support a charity',
+            'Hug a tree',
+            'Get the band back together',
+            'Learn to cook',
+            'Learn a new language',
+            'Travel overseas',
+            'Finish writing my novel',
+            'Develop that app idea',
+            'Take a public-speaking seminar',
+            'Go fishing with my dad',
+        ];
+
+        var index = getRandomInt(0, goals.length);
+        return goals[index];
+    }
+}
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 

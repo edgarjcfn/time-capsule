@@ -14,7 +14,7 @@ function getParameterByName(url, name) {
     return decodeURIComponent(results[1].replace(/\+/g, " ")) || '';
 }
 
-function NewsFeedController($scope, oauth)
+function NewsFeedController($scope, oauth, facebook)
 {
     $scope.loaded = false;
     $scope.db = {};
@@ -24,7 +24,7 @@ function NewsFeedController($scope, oauth)
     $scope.load = function() 
     {
         chrome.storage.sync.get('services', function(data) {
-            $scope.loaded = true;
+            
             if (! (data.services))
             {
                 data.services = [];
@@ -85,46 +85,12 @@ function NewsFeedController($scope, oauth)
 
     $scope.getFacebookFeed = function()
     {
-      var oauth_token = $scope.db.services['facebook']['token'];
-      var graphAPI = "https://graph.facebook.com/me?access_token=" + oauth_token;
-
-      // Thank you, datejs :)
-      var minDate = Date.parse('1 year ago').add(-12).days().getTime() / 1000;
-      var maxDate = Date.parse('1 year ago').add(12).days().getTime() / 1000;
-
-      var userFields = [
-        'id',
-        'name'
-      ]
-
-      var imageFields = [
-        'created_time',
-        'height',
-        'width',
-        'name',
-        'picture',
-        'source',
-        'link'
-      ];
-
-      var statusFields = [
-        'message'
-      ];
-
-      $.ajax({
-        dataType: "json",
-        url: graphAPI,
-        data: {
-          'fields' :  userFields.join() + ',' +
-                      'photos.since('+minDate+').until('+maxDate+').fields('+imageFields.join()+'),' + 
-                      'statuses.since('+minDate+').until('+maxDate+').fields('+statusFields.join()+')'
-        },
-        success : function(response) {
-            $scope.facebookFeed = response;
+        var fb_token = $scope.db.services['facebook']['token'];
+        facebook.getLastYearsPosts(fb_token, function(result) 
+        {
+            $scope.facebookFeed = result;
+            $scope.loaded = true;
             $scope.$apply();
-
-            console.debug(response);
-        }
-      });
+        });
     }
 }

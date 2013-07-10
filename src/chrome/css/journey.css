@@ -42,14 +42,16 @@
 }
 
 
-.task span.nav-counter {
-  background-color: #1ABC9C;
-  color: #fff;
+.task span.nav-counter
+{
+  background-color: inherit;
+  color: #95A5A6;
   font-size: 17px;
-  padding: 1px 10px;
+  margin-right:33px;
+  /*padding: 1px 10px;*/
 }
 
-.task:hover span.nav-remove {
+.task_li:hover span.nav-remove {
   display:block;
   background-color: #E74C3C;
   border-radius: 5px;
@@ -57,11 +59,11 @@
   font-size: 12.992px;
   font-weight: 500;
   float: right;
-  margin: 1px -28px -1px 6px;
+  margin: 1px 0 -1px -30px;
   padding: 0px 3px;
 }
 
-.task span.nav-remove {
+.task_li span.nav-remove {
   display:none;
 }
 
@@ -105,4 +107,14 @@
 .feed p.date {
   text-align: right;
   color: #95A5A6;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.loading {
+  font-size: 18px;
+}
+
+ul.nav-list {
+  margin-right: -60px;
 }

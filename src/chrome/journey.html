@@ -17,6 +17,8 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/date.js"></script>
     <script src="js/journey.staging.js"></script>
+    <script src="js/journey.filters.js"></script>
+    <script src="js/journey.facebook.js"></script>
     <script src="js/journey.goals.js"></script>
     <script src="js/journey.newsfeed.js"></script>
     
@@ -45,19 +47,21 @@
                 <i class="fui-facebook" ></i>
                 Connect with Facebook
               </a>
-            
+            <!-- 
               <a ng-hide="connected('twitter')" href="#fakelink" class="btn btn-large btn-social-twitter" ng-click="connect('twitter')">
                 <i class="fui-twitter"></i>
                 Connect with Twitter
-              </a>
+              </a> -->
             
           <div class="row">
+
             <div id="newsfeed" ng-show="connected('facebook')" >
               <div class="span1"></div>
               <div class="span8">
+                <div class="loading" ng-hide="loaded"><span class="fui-time"></span> Loading...</div>
                 <div class="feed status" ng-repeat="status in facebookFeed.statuses.data">
 
-                  <p class="message"> <span class="fui-bubble"></span><span class="fui-facebook"></span>
+                  <p class="message"> <span class="fui-bubble"></span><!-- <span class="fui-facebook"> --></span>
                     {{status.message}}</p>
                   <p class="date">{{status.updated_time | daysLeft}} days ago</p> 
                   <br />
@@ -66,7 +70,7 @@
                 <div class="feed pic" ng-repeat="photo in facebookFeed.photos.data">
                   
                     <!-- <a href="{{photo.link}}"> -->
-                      <p class="description"> <span class="fui-photo"></span><span class="fui-facebook"></span> {{photo.name}} </p>
+                      <p class="description"> <span class="fui-photo"></span><!-- <span class="fui-facebook"> --></span> {{photo.name}} </p>
                       <a href="{{photo.link}}"><img class="image" src="{{photo.picture}}" /></a> <br />
                     <!-- </a> -->
 
@@ -95,16 +99,16 @@
             <div class="span8">
               <div class="control-group large">
                 <form ng-submit="addGoal()">
-                  <input ng-model="newGoal" id="future-box" type="text" placeholder="ex.: Achieve ideal weight"/>
+                  <input ng-model="newGoal" id="future-box" type="text" placeholder="ex.: {{newGoalExample}}"/>
                 </form>
               </div>
             </div>
           </div>
           <div ng-init="load()">
             <ul class="nav nav-list">
-            <li class="nav-header">Goals</li>
+            <li class="nav-header" ng-show="db.goals.length > 0">Goals</li>
 
-            <li ng-repeat="goal in db.goals">
+            <li class="task_li" ng-repeat="goal in db.goals">
 
               <label class="checkbox primary {{is(goal.done, 'checked')}}">
                 <span class="icons">
