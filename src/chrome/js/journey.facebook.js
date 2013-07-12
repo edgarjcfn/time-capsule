@@ -9,8 +9,8 @@ services.service('facebook', function() {
 		var graphAPI = "https://graph.facebook.com/me?access_token=" + oauth_token;
 
 		// Thank you, datejs :)
-		var minDate = Date.parse('1 year ago').add(-12).days().getTime() / 1000;
-		var maxDate = Date.parse('1 year ago').add(12).days().getTime() / 1000;
+		var minDate = Date.parse('1 year ago').add(-10).days().getTime() / 1000;
+		var maxDate = Date.parse('1 year ago').add(10).days().getTime() / 1000;
 
 		var userFields = [
 		'id',

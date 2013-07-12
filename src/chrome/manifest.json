@@ -1,39 +1,19 @@
 {
   "manifest_version": 2,
 
-  "name": "Journey",
+  "name": "Time Capsule",
   "description": "This extension allows you to read a news feed from yourself one year ago.",
   "version": "0.0.1",
   "chrome_url_overrides" : {
     "newtab": "journey.html"
   },
-  // "background": 
-  // {
-  //   "scripts": ["js/journey/update.js"],
-  //   "persistent" : false
-  // },
   "permissions": [
     "tabs",
     "storage"
-    // remember to add backend urls here
-    //"https://graph.facebook.com/oauth/access_token",
-    //"https://api.twitter.com/oauth/access_token"
   ],
   "icons" : { 
     "16" : "images/logo-16.png", 
     "48" : "images/logo-48.png",
     "128" : "images/logo-128.png"
-  },
-  "content_scripts": [
-    {
-      "matches": ["http://www.twitter.com/robots.txt*"],
-      "js": ["oauth2/oauth2_inject.js"],
-      "run_at": "document_start"
-    },
-    {
-      "matches": ["http://desolate-waters-5944.herokuapp.com/login_successful.htm*"],
-      "js": ["oauth2/oauth2_inject.js"],
-      "run_at": "document_start"
-    }
-  ]
+  }
 }

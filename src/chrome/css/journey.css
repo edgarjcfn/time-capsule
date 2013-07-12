@@ -118,3 +118,7 @@
 ul.nav-list {
   margin-right: -60px;
 }
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}

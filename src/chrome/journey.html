@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="journey" ng-csp>
   <head >
-    <title>Journey</title>
+    <title>Time Capsule</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Loading Bootstrap -->
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -42,11 +42,12 @@
         <div class="span1"></div>
         <div class="span8">
           <div class="page-header"> <h2> One year in the past </h2> </div>
-            
-              <a ng-hide="connected('facebook')" href="#fakelink" class="btn btn-large btn-social-facebook" ng-click="connect('facebook')">
+            <div ng-cloak ng-hide="connected('facebook')">
+              <a href="#fakelink" class="btn btn-large btn-social-facebook" ng-click="connect('facebook')">
                 <i class="fui-facebook" ></i>
                 Connect with Facebook
               </a>
+            </div>
             <!-- 
               <a ng-hide="connected('twitter')" href="#fakelink" class="btn btn-large btn-social-twitter" ng-click="connect('twitter')">
                 <i class="fui-twitter"></i>
@@ -99,7 +100,7 @@
             <div class="span8">
               <div class="control-group large">
                 <form ng-submit="addGoal()">
-                  <input ng-model="newGoal" id="future-box" type="text" placeholder="ex.: {{newGoalExample}}"/>
+                  <input ng-model="newGoal" id="future-box" type="text" placeholder='Set a goal for yourself, like: "{{newGoalExample}}"'/>
                 </form>
               </div>
             </div>
