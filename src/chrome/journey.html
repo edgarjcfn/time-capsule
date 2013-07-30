@@ -24,11 +24,7 @@
     <script src="js/journey.theme.js"></script>
     
     <header class="header bg-{{theme}}" id="overview" >
-      <div class="row" >
-        <div class="span1"></div>
-        <div class="span18">
-          <h1>Your Time Capsule </h1>
-        </div>
+        <h1>Your Time Capsule </h1>
         <ul class="nav pull-right options">
           <li class="active">
             <a href="#" ng-click="nextTheme()">
@@ -36,15 +32,13 @@
             </a>
           </li>
         </ul>
-      </div>
     </header>
 
     <div class="row">
 
       <!-- LEFT -->
       <section id="past" ng-controller="NewsFeedController" ng-init="load()">
-        <div class="span1"></div>
-        <div class="span6">
+        <div class="span8 newsfeed-column">
           <div class="page-header {{theme}}"> <h2> One year in the past </h2> </div>
             <div ng-cloak ng-hide="connected('facebook')">
               <a href="#" class="btn btn-large btn-social-facebook" ng-click="connect('facebook')">
@@ -56,8 +50,7 @@
           <div class="row">
 
             <div id="newsfeed" ng-show="connected('facebook')" >
-              <div class="span1"></div>
-              <div class="span6">
+              <div class="span8">
                 <div class="loading" ng-hide="loaded"><span class="fui-time"></span> Loading...</div>
 
                 <div class="loading" ng-cloak ng-show="loaded && !hasContent">There's no posts from one year ago.
@@ -95,21 +88,21 @@
       </section>  
 
       <!-- CENTER -->
-      <div class="span1"></div>
+      <!-- <div class="span1"></div> -->
 
       <!-- RIGHT -->
       <section id="future" ng-controller="GoalsController">
-        <div class="span6">
+        <div class="span8 goals-column">
           <div class="page-header {{theme}}"> 
             <h2> 
               One year in the future
             </h2> 
           </div>
           <div class="row tight">
-            <div class="span6">
+            <div class="span8">
               <div class="control-group large">
                 <form ng-submit="addGoal()">
-                  <input ng-model="newGoal" id="future-box" type="text" placeholder='Set a goal for yourself, like: "{{newGoalExample}}"'/>
+                  <input ng-model="newGoal" id="future-box-{{theme}}" type="text" placeholder='Set a goal for yourself, like: "{{newGoalExample}}"'/>
                 </form>
               </div>
             </div>

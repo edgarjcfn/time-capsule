@@ -64,10 +64,52 @@
   color: #2c3e50;
 }
 
+#future-box-aqua  {
+  border-color: #16a085;
+  width:100%;
+}
+
+#future-box-blue  {
+  border-color: #3498db;
+  width:100%;
+}
+
+#future-box-orange  {
+  border-color: #d35400;
+  width:100%;
+}
+
+#future-box-red  {
+ border-color: #e74c3c;
+ width:100%;
+}
+
+#future-box-yellow  {
+  border-color: #f39c12;
+  width:100%;
+}
+
+#future-box-black  {
+  border-color: #2c3e50;
+  width:100%;
+}
+
+#future-box-white  {
+  border-color: #2c3e50;
+  width:100%;
+}
+
+/* Sections */
+.newsfeed-column, .goals-column {
+  margin-left:7%;
+}
+
+
+
 /* Common Elements */
-.header {
+header  {
     font-family: 'Josefin Sans';
-    margin-bottom: 40px;
+    width:100%;
 }
 
 .footer {
@@ -77,19 +119,35 @@
     width:100%;
 }
 
-.header h1
+header h1
 {
     font-weight: 700;
     font-size:70px;
-    /*margin:40px;*/
     margin-bottom: 0;
-    margin-top:40px;
+    padding-top:40px;
+    margin-top:0;
+    width:100%;
+    padding-left:5%;
 }
 
-.header .lead {
+header .lead {
     color: #34495E;
     font-size:21px;
     font-weight:100;
+}
+
+header .options a{
+  font-size: 26pt;
+  padding: 10px;
+  vertical-align: middle;
+  font-family: 'Flat-UI-Icons';
+  position:absolute;
+  right: 5%;
+  top: 5%;
+}
+
+header .options ul li a {
+  transition:none;
 }
 
 .page-header h2 {
@@ -99,23 +157,8 @@
     font-size:26pt;
 }
 
-.options {
-  font-size: 26pt;
-  padding: 10px;
-  vertical-align: middle;
-  font-family: 'Flat-UI-Icons';
-}
-
-.options ul li a {
-  transition:none;
-}
 
 /*Goals*/
-
-#future-box {
-    width:100%;
-}
-
 
 .task span.nav-counter
 {
@@ -211,6 +254,7 @@ ul.nav-list {
 
   .page-header h2 {
     font-size:20px;
+    font-weight: 700;
   }
 }
 
