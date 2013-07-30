@@ -85,7 +85,7 @@ function GoalsController($scope)
         ];
 
         var index = getRandomInt(0, goals.length);
-        return goals[index];
+        return goals[index] || "Adopt a homeless animal";
     }
 }
 

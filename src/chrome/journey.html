@@ -59,12 +59,14 @@
               <div class="span1"></div>
               <div class="span6">
                 <div class="loading" ng-hide="loaded"><span class="fui-time"></span> Loading...</div>
-                <div class="feed status" ng-repeat="status in facebookFeed.statuses.data">
 
-                  <p class="message"> <span class="fui-bubble"></span><!-- <span class="fui-facebook"> --></span>
-                    {{status.message}}</p>
-                  <p class="date">{{status.updated_time | daysLeft}} days ago</p> 
-                  <br />
+                <div class="loading" ng-cloak ng-show="loaded && !hasContent">There's no posts from one year ago.
+                 <br />
+
+                Here's a random cat instead. Enjoy your day. :) <br />
+
+                  <img src="http://edgecats.net/" /> 
+
                 </div>
 
                 <div class="feed pic" ng-repeat="photo in facebookFeed.photos.data">
@@ -76,6 +78,14 @@
 
                     <p class="date">{{photo.created_time | daysLeft}} days ago</p> 
                   
+                </div>
+
+                <div class="feed status" ng-repeat="status in facebookFeed.statuses.data">
+
+                  <p class="message"> <span class="fui-bubble"></span><!-- <span class="fui-facebook"> --></span>
+                    {{status.message}}</p>
+                  <p class="date">{{status.updated_time | daysLeft}} days ago</p> 
+                  <br />
                 </div>
 
               </div>

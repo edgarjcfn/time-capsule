@@ -10,7 +10,8 @@ services.service('facebook', function() {
 
 		// Thank you, datejs :)
 		var minDate = Date.parse('1 year ago').add(-10).days().getTime() / 1000;
-		var maxDate = Date.parse('1 year ago').add(10).days().getTime() / 1000;
+		var maxDate = Date.parse('1 year ago').add(10).days().getTime() / 1000;var minDate = Date.parse('1 year ago').add(-10).days().getTime() / 1000;
+		
 
 		var userFields = [
 		'id',

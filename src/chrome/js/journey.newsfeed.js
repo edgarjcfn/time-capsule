@@ -19,6 +19,7 @@ function NewsFeedController($scope, oauth, facebook)
     $scope.loaded = false;
     $scope.db = {};
     $scope.currentTab = -1;
+    $scope.hasContent = false;
     $scope.facebookFeed;
 
     $scope.load = function() 
@@ -90,6 +91,7 @@ function NewsFeedController($scope, oauth, facebook)
         {
             $scope.facebookFeed = result;
             $scope.loaded = true;
+            $scope.hasContent = (result.statuses && result.statuses.data.length > 0) || (result.photos && result.photos.data.length > 0);
             $scope.$apply();
         });
     }

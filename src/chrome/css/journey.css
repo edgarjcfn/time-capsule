@@ -78,6 +78,10 @@
   font-family: 'Flat-UI-Icons';
 }
 
+.options ul li a {
+  transition:none;
+}
+
 /*Goals*/
 
 #future-box {
