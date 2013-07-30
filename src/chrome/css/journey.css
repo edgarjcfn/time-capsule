@@ -1,39 +1,67 @@
 @import url(http://fonts.googleapis.com/css?family=Flamenco|Josefin+Sans:400,700);
 
 /* Color palettes */
-.header.aqua * {
+* .bg-aqua * {
   background-color: #1ABC9C;
   color: #ECF0F1;
 }
 
-.header.blue *{
+* .bg-blue * {
   background-color: #3498db;
   color: #ECF0F1;
 }
 
-.header.orange *{
-  background-color: #d35400;
+* .bg-orange * {
+  background-color: #e67e22;
   color: #ECF0F1;
 }
 
-.header.red *{
+* .bg-red * {
   background-color: #c0392b;
   color: #ECF0F1;
 }
 
-.header.black *{
+* .bg-black * {
   background-color: #2c3e50;
   color: #ECF0F1;
 }
 
-.header.white *{
+* .bg-white * {
   background-color: #ecf0f1;
   color : #2c3e50;
 }
 
-.header.yellow *{
+* .bg-yellow * {
   background-color: #f39c12;
   color: #ECF0F1; 
+}
+
+* .aqua * {
+  color: #16a085;
+}
+
+* .blue * {
+  color: #3498db;
+}
+
+* .orange * {
+  color: #d35400;
+}
+
+* .red * {
+  color: #e74c3c
+}
+
+* .yellow * {
+  color: #f39c12;
+}
+
+* .black * {
+  color: #2c3e50;
+}
+
+* .white * {
+  color: #2c3e50;
 }
 
 /* Common Elements */
@@ -66,7 +94,7 @@
 
 .page-header h2 {
     font-family: 'Lato';
-    color: #34495E;
+    /*color: #34495E;*/
     font-weight:100;
     font-size:26pt;
 }
@@ -92,7 +120,7 @@
 .task span.nav-counter
 {
   background-color: inherit;
-  color: #95A5A6;
+  /*color: #95A5A6;*/
   font-size: 17px;
   margin-right:33px;
 }

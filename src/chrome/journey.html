@@ -10,7 +10,7 @@
     <!-- Custom -->
     <link href="css/journey.css" rel="stylesheet" media="screen" />
   </head>
-  <body>
+  <body ng-controller="ThemeController" ng-init="load()">
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/underscore-min.js"></script>
     <script src="js/angular.min.js"></script>
@@ -21,9 +21,9 @@
     <script src="js/journey.facebook.js"></script>
     <script src="js/journey.goals.js"></script>
     <script src="js/journey.newsfeed.js"></script>
-    <script src="js/journey.header.js"></script>
+    <script src="js/journey.theme.js"></script>
     
-    <header class="header {{theme}}" id="overview" ng-controller="HeaderController" ng-init="load()">
+    <header class="header bg-{{theme}}" id="overview" >
       <div class="row" >
         <div class="span1"></div>
         <div class="span18">
@@ -45,7 +45,7 @@
       <section id="past" ng-controller="NewsFeedController" ng-init="load()">
         <div class="span1"></div>
         <div class="span6">
-          <div class="page-header"> <h2> One year in the past </h2> </div>
+          <div class="page-header {{theme}}"> <h2> One year in the past </h2> </div>
             <div ng-cloak ng-hide="connected('facebook')">
               <a href="#" class="btn btn-large btn-social-facebook" ng-click="connect('facebook')">
                 <i class="fui-facebook" ></i>
@@ -76,7 +76,7 @@
                       <img class="image" src="{{photo.picture}}" /> <br />
                     <!-- </a> -->
 
-                    <p class="date"> <a href="{{photo.link}}"> {{photo.created_time | daysLeft}} days ago <span class="fui-export"> </span></a> </p> 
+                    <p class="date {{theme}} "> <a href="{{photo.link}}"> {{photo.created_time | daysLeft}} days ago <span class="fui-export"> </span></a> </p> 
                   
                 </div>
 
@@ -84,7 +84,7 @@
 
                   <p class="message"> <span class="fui-bubble"></span><!-- <span class="fui-facebook"> --></span>
                     {{status.message}}</p>
-                  <p class="date"> <a href="https://facebook.com/{{facebookFeed.id}}_{{status.id}}"> {{status.updated_time | daysLeft}} days ago <span class="fui-export"> </span> </a></p> 
+                  <p class="date {{theme}}"> <a href="https://facebook.com/{{facebookFeed.id}}_{{status.id}}"> {{status.updated_time | daysLeft}} days ago <span class="fui-export"> </span> </a></p> 
                   <br />
                 </div>
 
@@ -100,7 +100,7 @@
       <!-- RIGHT -->
       <section id="future" ng-controller="GoalsController">
         <div class="span6">
-          <div class="page-header"> 
+          <div class="page-header {{theme}}"> 
             <h2> 
               One year in the future
             </h2> 
@@ -120,7 +120,7 @@
 
             <li class="task_li" ng-repeat="goal in db.goals">
 
-              <label class="checkbox primary {{is(goal.done, 'checked')}}">
+              <label class="{{theme}} checkbox primary {{is(goal.done, 'checked')}}">
                 <span class="icons">
                   <span class="first-icon fui-checkbox-unchecked"></span>
                   <span class="second-icon fui-checkbox-checked"></span>
@@ -128,10 +128,10 @@
 
                 <input type="checkbox" value="" id="checkbox1" data-toggle="checkbox {{is(goal.done, 'checked')}}" ng-click="toggle(goal)">
 
-                <a class="task {{is(goal.done, 'scratch')}}" href="#fakelink" ng-click="toggle(goal)">
+                <a class="{{theme}} task {{is(goal.done, 'scratch')}}" href="#fakelink" ng-click="toggle(goal)">
                   {{goal.description}}
                   <span class="fui-cross nav-remove" ng-click="remove($index)"></span>
-                  <span class="nav-counter">{{goal.deadline | daysLeft}} days left</span>
+                  <span class="{theme}} nav-counter">{{goal.deadline | daysLeft}} days left</span>
                 </a>
 
               </label>

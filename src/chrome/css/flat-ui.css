@@ -709,7 +709,7 @@ a {
   -webkit-backface-visibility: hidden;
 }
 a:hover {
-  color: #1abc9c;
+  /*color: #1abc9c;*/
   text-decoration: none;
 }
 h1,
