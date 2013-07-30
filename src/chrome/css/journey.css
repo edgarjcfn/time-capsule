@@ -1,8 +1,43 @@
 @import url(http://fonts.googleapis.com/css?family=Flamenco|Josefin+Sans:400,700);
 
+/* Color palettes */
+.header.aqua * {
+  background-color: #1ABC9C;
+  color: #ECF0F1;
+}
 
+.header.blue *{
+  background-color: #3498db;
+  color: #ECF0F1;
+}
+
+.header.orange *{
+  background-color: #d35400;
+  color: #ECF0F1;
+}
+
+.header.red *{
+  background-color: #c0392b;
+  color: #ECF0F1;
+}
+
+.header.black *{
+  background-color: #2c3e50;
+  color: #ECF0F1;
+}
+
+.header.white *{
+  background-color: #ecf0f1;
+  color : #2c3e50;
+}
+
+.header.yellow *{
+  background-color: #f39c12;
+  color: #ECF0F1; 
+}
+
+/* Common Elements */
 .header {
-    background-color: #1ABC9C;
     font-family: 'Josefin Sans';
     margin-bottom: 40px;
 }
@@ -16,7 +51,6 @@
 
 .header h1
 {
-    color: #ECF0F1;
     font-weight: 700;
     font-size:70px;
     /*margin:40px;*/
@@ -37,6 +71,15 @@
     font-size:26pt;
 }
 
+.options {
+  font-size: 26pt;
+  padding: 10px;
+  vertical-align: middle;
+  font-family: 'Flat-UI-Icons';
+}
+
+/*Goals*/
+
 #future-box {
     width:100%;
 }
@@ -48,7 +91,6 @@
   color: #95A5A6;
   font-size: 17px;
   margin-right:33px;
-  /*padding: 1px 10px;*/
 }
 
 .task_li:hover span.nav-remove {
@@ -89,6 +131,8 @@
   display: block;
 }
 
+/* Newsfeed */
+
 .feed.status {
   margin:10px 0 10px 0;
 }
@@ -100,7 +144,7 @@
 }
 
 .feed.status p.message {
-  text-align: left;
+  text-align: justify;
   font-style: italic; 
 }
 
@@ -119,6 +163,19 @@ ul.nav-list {
   margin-right: -60px;
 }
 
-[ng\:cloak], [ng-cloak], .ng-cloak {
-  display: none !important;
+@media (max-width: 1024px) {
+
+  .header {
+    margin-bottom: 30px;
+  }
+
+  .header h1 {
+    font-size:60px;
+  }
+
+  .page-header h2 {
+    font-size:20px;
+  }
 }
+
+

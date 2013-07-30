@@ -32,9 +32,6 @@ function NewsFeedController($scope, oauth, facebook)
             $scope.db = data;
             $scope.$apply();
 
-            console.debug(data);
-            console.debug($scope.db);
-
             $scope.getFacebookFeed();
         });
 
@@ -71,8 +68,6 @@ function NewsFeedController($scope, oauth, facebook)
                     });
 
                     chrome.tabs.remove(changedTabId);
-
-                    console.debug($scope.db);
 
                     $scope.$apply();
 

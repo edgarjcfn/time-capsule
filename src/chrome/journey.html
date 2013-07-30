@@ -16,23 +16,27 @@
     <script src="js/angular.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/date.js"></script>
-    <script src="js/journey.staging.js"></script>
+    <script src="js/journey.js"></script>
     <script src="js/journey.filters.js"></script>
     <script src="js/journey.facebook.js"></script>
     <script src="js/journey.goals.js"></script>
     <script src="js/journey.newsfeed.js"></script>
+    <script src="js/journey.header.js"></script>
     
-    <header class="header" id="overview">
-      <div class="row">
+    <header class="header {{theme}}" id="overview" ng-controller="HeaderController" ng-init="load()">
+      <div class="row" >
         <div class="span1"></div>
         <div class="span18">
-          <h1>Your Time Capsule</h1>
+          <h1>Your Time Capsule </h1>
         </div>
+        <ul class="nav pull-right options">
+          <li class="active">
+            <a href="#" ng-click="nextTheme()">
+              &#57362; <!-- eye glyph -->
+            </a>
+          </li>
+        </ul>
       </div>
-      <!-- <div class="row">
-        <div class="span2"></div>
-        <p class="lead">the story of Edgar Neto</p>
-      </div> -->
     </header>
 
     <div class="row">
@@ -40,25 +44,20 @@
       <!-- LEFT -->
       <section id="past" ng-controller="NewsFeedController" ng-init="load()">
         <div class="span1"></div>
-        <div class="span8">
+        <div class="span6">
           <div class="page-header"> <h2> One year in the past </h2> </div>
             <div ng-cloak ng-hide="connected('facebook')">
-              <a href="#fakelink" class="btn btn-large btn-social-facebook" ng-click="connect('facebook')">
+              <a href="#" class="btn btn-large btn-social-facebook" ng-click="connect('facebook')">
                 <i class="fui-facebook" ></i>
                 Connect with Facebook
               </a>
             </div>
-            <!-- 
-              <a ng-hide="connected('twitter')" href="#fakelink" class="btn btn-large btn-social-twitter" ng-click="connect('twitter')">
-                <i class="fui-twitter"></i>
-                Connect with Twitter
-              </a> -->
             
           <div class="row">
 
             <div id="newsfeed" ng-show="connected('facebook')" >
               <div class="span1"></div>
-              <div class="span8">
+              <div class="span6">
                 <div class="loading" ng-hide="loaded"><span class="fui-time"></span> Loading...</div>
                 <div class="feed status" ng-repeat="status in facebookFeed.statuses.data">
 
@@ -90,14 +89,14 @@
 
       <!-- RIGHT -->
       <section id="future" ng-controller="GoalsController">
-        <div class="span8">
+        <div class="span6">
           <div class="page-header"> 
             <h2> 
               One year in the future
             </h2> 
           </div>
           <div class="row tight">
-            <div class="span8">
+            <div class="span6">
               <div class="control-group large">
                 <form ng-submit="addGoal()">
                   <input ng-model="newGoal" id="future-box" type="text" placeholder='Set a goal for yourself, like: "{{newGoalExample}}"'/>

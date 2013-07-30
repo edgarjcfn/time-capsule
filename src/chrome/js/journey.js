@@ -7,6 +7,6 @@ var journey = angular.module('journey',
 
 
 journey.service('oauth', function() {
-    this.connectUrl = "http://stunning-net-216.appspot.com/auth/{service}/login"
-    this.successUrl = "http://stunning-net-216.appspot.com/auth/{service}/success"
+    this.connectUrl = "http://my-time-capsule.appspot.com/auth/{service}/login"
+    this.successUrl = "http://my-time-capsule.appspot.com/auth/{service}/success"
 });
