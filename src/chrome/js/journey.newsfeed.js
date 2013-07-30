@@ -93,6 +93,8 @@ function NewsFeedController($scope, oauth, facebook)
             $scope.loaded = true;
             $scope.hasContent = (result.statuses && result.statuses.data.length > 0) || (result.photos && result.photos.data.length > 0);
             $scope.$apply();
+
+            console.debug(result);
         });
     }
 }

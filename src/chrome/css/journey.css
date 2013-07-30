@@ -159,6 +159,10 @@
   font-weight: 500;
 }
 
+.feed p.date a .fui-export {
+  font-size:10px;
+}
+
 .loading {
   font-size: 18px;
 }

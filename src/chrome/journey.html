@@ -73,10 +73,10 @@
                   
                     <!-- <a href="{{photo.link}}"> -->
                       <p class="description"> <span class="fui-photo"></span><!-- <span class="fui-facebook"> --></span> {{photo.name}} </p>
-                      <a href="{{photo.link}}"><img class="image" src="{{photo.picture}}" /></a> <br />
+                      <img class="image" src="{{photo.picture}}" /> <br />
                     <!-- </a> -->
 
-                    <p class="date">{{photo.created_time | daysLeft}} days ago</p> 
+                    <p class="date"> <a href="{{photo.link}}"> {{photo.created_time | daysLeft}} days ago <span class="fui-export"> </span></a> </p> 
                   
                 </div>
 
@@ -84,7 +84,7 @@
 
                   <p class="message"> <span class="fui-bubble"></span><!-- <span class="fui-facebook"> --></span>
                     {{status.message}}</p>
-                  <p class="date">{{status.updated_time | daysLeft}} days ago</p> 
+                  <p class="date"> <a href="https://facebook.com/{{facebookFeed.id}}_{{status.id}}"> {{status.updated_time | daysLeft}} days ago <span class="fui-export"> </span> </a></p> 
                   <br />
                 </div>
 
