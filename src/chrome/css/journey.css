@@ -100,8 +100,16 @@
 }
 
 /* Sections */
-.newsfeed-column, .goals-column {
+.newsfeed-column {
   margin-left:7%;
+  width:40%;
+  float:left;
+}
+
+.goals-column {
+  margin-right:7%;
+  width:40%;
+  float:right;
 }
 
 
@@ -242,7 +250,7 @@ ul.nav-list {
   margin-right: -60px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 800px) {
 
   .header {
     margin-bottom: 30px;
@@ -255,6 +263,18 @@ ul.nav-list {
   .page-header h2 {
     font-size:20px;
     font-weight: 700;
+  }
+
+  .newsfeed-column {
+    margin-left:7%;
+    width:80%;
+    float:none;
+  }
+
+  .goals-column {
+    margin-left:7%;
+    width:80%;
+    float:none;
   }
 }
 

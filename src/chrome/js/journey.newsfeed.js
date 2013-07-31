@@ -14,7 +14,7 @@ function getParameterByName(url, name) {
     return decodeURIComponent(results[1].replace(/\+/g, " ")) || '';
 }
 
-function NewsFeedController($scope, oauth, facebook)
+function NewsFeedController($scope, facebook)
 {
     $scope.loaded = false;
     $scope.db = {};
@@ -42,7 +42,7 @@ function NewsFeedController($scope, oauth, facebook)
         });
     }
 
-    $scope.connect = function(service)
+    $scope.connect_old = function(service)
     {
         var connectUrl = oauth.connectUrl.replace('{service}', service);
         var createdId = -1;
@@ -74,6 +74,22 @@ function NewsFeedController($scope, oauth, facebook)
 
                     $scope.getFacebookFeed();
                 }
+            }
+        });
+    }
+
+    $scope.connect = function(service)
+    {
+        OAuth.initialize('Jqpu2-jbgWTGiEAFY3JYMeEflvU');
+
+        OAuth.popup(service, function(error, result) {
+            if (!error)
+            {
+                alert('token: ' + result.access_token);
+            }
+            else
+            {
+                alert(error);
             }
         });
     }

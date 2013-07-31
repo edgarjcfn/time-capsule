@@ -13,6 +13,7 @@
   <body ng-controller="ThemeController" ng-init="load()">
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/underscore-min.js"></script>
+    <script src="js/oauth.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/date.js"></script>
@@ -50,7 +51,6 @@
           <div class="row">
 
             <div id="newsfeed" ng-show="connected('facebook')" >
-              <div class="span8">
                 <div class="loading" ng-hide="loaded"><span class="fui-time"></span> Loading...</div>
 
                 <div class="loading" ng-cloak ng-show="loaded && !hasContent">There's no posts from one year ago.
@@ -80,8 +80,6 @@
                   <p class="date {{theme}}"> <a href="https://facebook.com/{{facebookFeed.id}}_{{status.id}}"> {{status.updated_time | daysLeft}} days ago <span class="fui-export"> </span> </a></p> 
                   <br />
                 </div>
-
-              </div>
             </div> 
           </div>
         </div>
@@ -92,14 +90,14 @@
 
       <!-- RIGHT -->
       <section id="future" ng-controller="GoalsController">
-        <div class="span8 goals-column">
+        <div class="goals-column">
           <div class="page-header {{theme}}"> 
             <h2> 
               One year in the future
             </h2> 
           </div>
-          <div class="row tight">
-            <div class="span8">
+          <div class="">
+            <div class="">
               <div class="control-group large">
                 <form ng-submit="addGoal()">
                   <input ng-model="newGoal" id="future-box-{{theme}}" type="text" placeholder='Set a goal for yourself, like: "{{newGoalExample}}"'/>

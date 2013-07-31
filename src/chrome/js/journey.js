@@ -6,7 +6,7 @@ var journey = angular.module('journey',
     'journey.filters']);
 
 
-journey.service('oauth', function() {
-    this.connectUrl = "http://my-time-capsule.appspot.com/auth/{service}/login"
-    this.successUrl = "http://my-time-capsule.appspot.com/auth/{service}/success"
-});
+// journey.service('oauth', function() {
+//     this.connectUrl = "http://my-time-capsule.appspot.com/auth/{service}/login"
+//     this.successUrl = "http://my-time-capsule.appspot.com/auth/{service}/success"
+// });
