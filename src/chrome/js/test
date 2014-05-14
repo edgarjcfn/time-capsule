@@ -1,0 +1,18 @@
+
+    // $scope.connect = function(service)
+    // {
+
+    //     chrome.tabs.create(
+    //         {'url': chrome.extension.getURL('auth.html/#!/?jnfs='+service)}
+    //     );
+
+    //     // OAuth.initialize('Jqpu2-jbgWTGiEAFY3JYMeEflvU');
+
+    //     // chrome.tabs.onUpdated.addListener(function(changedTabId, changeInfo, changedTab) {
+    //     //     alert(changedTab.url);
+    //     // });
+
+    //     // OAuth.popup(service, null, config.oauthSuccessUrl(service), function(error, response) {
+
+    //     // });
+    // }

@@ -58,7 +58,7 @@
 		initialize: function(public_key) {
 			config.key = public_key;
 		},
-		popup: function(provider, opts, callback) {
+		popup: function(provider, opts, callback_url, callback) {
 			var wnd;
 			if ( ! config.key)
 				return callback(new Error('OAuth object must be initialized'));
@@ -68,7 +68,7 @@
 			}
 
 			var url = config.oauthd_url + '/' + provider + "?k=" + config.key
-			url += '&d=' + encodeURIComponent(getAbsUrl('/'));
+			url += '&d=' + (callback_url != null ? callback_url : encodeURIComponent(getAbsUrl('/')));
 			if (opts)
 				url += "&opts=" + encodeURIComponent(JSON.stringify(opts));
 
@@ -106,11 +106,23 @@
 			};
 
 			if (window.attachEvent)
-				window.attachEvent("onmessage", getMessage);
+				{
+					console.log('window.attachEvent');
+					window.attachEvent("onmessage", getMessage);
+				}
 			else if (document.attachEvent)
-				document.attachEvent("onmessage", getMessage);
+				{
+					console.log('document.attachEvent');
+					document.attachEvent("onmessage", getMessage);
+				}
 			else if (window.addEventListener)
-				window.addEventListener("message", getMessage, false);
+				{
+					console.log('window.addEventListener');
+					window.addEventListener("message", getMessage, false);
+				}
+
+			else
+				console.log("this window did not support event handlers");
 
 			setTimeout(function() {
 				opts.callback(new Error('Authorization timed out'));

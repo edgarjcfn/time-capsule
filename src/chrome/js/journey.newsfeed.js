@@ -14,7 +14,7 @@ function getParameterByName(url, name) {
     return decodeURIComponent(results[1].replace(/\+/g, " ")) || '';
 }
 
-function NewsFeedController($scope, facebook)
+function NewsFeedController($scope, config, facebook)
 {
     $scope.loaded = false;
     $scope.db = {};
@@ -42,9 +42,9 @@ function NewsFeedController($scope, facebook)
         });
     }
 
-    $scope.connect_old = function(service)
+    $scope.connect = function(service)
     {
-        var connectUrl = oauth.connectUrl.replace('{service}', service);
+        var connectUrl = config.OauthConnectUrl.replace('{service}', service);
         var createdId = -1;
         
         chrome.tabs.create({url:connectUrl, openerTabId:$scope.currentTab}, function(tab) {
@@ -54,7 +54,7 @@ function NewsFeedController($scope, facebook)
         chrome.tabs.onUpdated.addListener(function(changedTabId, changeInfo, changedTab) {
             if (changedTabId == createdId && changeInfo.url)
             {
-                var successUrl = oauth.successUrl.replace('{service}', service);
+                var successUrl = config.OauthSuccessUrl.replace('{service}', service);
                 if (changeInfo.url.indexOf(successUrl) != -1)
                 {
                     if (!$scope.db.services) 
@@ -78,21 +78,6 @@ function NewsFeedController($scope, facebook)
         });
     }
 
-    $scope.connect = function(service)
-    {
-        OAuth.initialize('Jqpu2-jbgWTGiEAFY3JYMeEflvU');
-
-        OAuth.popup(service, function(error, result) {
-            if (!error)
-            {
-                alert('token: ' + result.access_token);
-            }
-            else
-            {
-                alert(error);
-            }
-        });
-    }
 
     $scope.connected = function(service)
     {

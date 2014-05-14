@@ -6,7 +6,10 @@ var journey = angular.module('journey',
     'journey.filters']);
 
 
-// journey.service('oauth', function() {
-//     this.connectUrl = "http://my-time-capsule.appspot.com/auth/{service}/login"
-//     this.successUrl = "http://my-time-capsule.appspot.com/auth/{service}/success"
-// });
+journey.service('config', function() {
+	this.OauthConnectUrl = "http://my-time-capsule.appspot.com/auth/{service}/login";
+	this.OauthSuccessUrl = "http://my-time-capsule.appspot.com/auth/{service}/success";
+    // this.oauthSuccessUrl = function(service) {
+    // 	return "http://my-time-capsule.appspot.com/auth/{service}/success".replace('{service}', service);
+    // }
+});
