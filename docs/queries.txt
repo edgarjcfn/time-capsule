@@ -1,5 +1,0 @@
-statuses from one year ago: 
-	GET me?fields=id,name,statuses.until(1334670164).since(1333460545).fields(updated_time,id,from,message)
-
-photos from one year ago (2 months timespan):
-	GET me?fields=id,name,photos.since(1331391179).until(1336657984).limit(25).fields(created_time,updated_time,link,page_story_id)
