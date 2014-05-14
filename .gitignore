@@ -1,2 +1,4 @@
 /src/backend/*
 *.zip
+/docs/*
+/refs/*
